@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorax News Central Site</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link href="style.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="warningScreen">
+        
+        <h1 class="TEXT">Ops!</h1><br>
+        <p class="TEXT" id="txtWarning">Este site tem suporte apenas para modo paisagem, vire ou redimensione a sua tela</p>
+        <img src="images/rotate.png" alt="">
+    </div>
+
+    <div id="modal">
+        <div id="modalBox">
+            <h1 class="TEXT" id="modalTitle"></h1>
+            <p class="TEXT" id="modalText"></p>
+            <img id="codeImg" src="images/code.png" alt="">
+        </div>
+    </div>
+
+    <canvas id="canvas"></canvas>
+
+    <div id="sidebar">
+        <a href="#headerInicio">
+            <div class="btnSidebar" id="bar1">
+                <div id="inicioIcon">
+                    <img id="inicioImg" class="imgSB" src="images/portfolio_icons.png" alt="">
+                </div>
+                <div id="txtSBInicio" class="txtSB TEXT">ÍNICIO</div>
+            </div>
+        </a>
+
+        <a href="#habilidades">
+            <div class="btnSidebar" id="bar2">
+                <div id="habIcon">
+                    <img id="habImg" class="imgSB" src="images/portfolio_icons.png" alt="">
+                </div>
+                <div id="txtSBHab" class="txtSB TEXT">HABILIDADES</div>
+            </div>
+        </a>
+
+        <a href="#projetos">
+            <div class="btnSidebar" id="bar3">
+                <div id="projIcon">
+                    <img id="projImg" class="imgSB" src="images/portfolio_icons.png" alt="">
+                </div>
+                <div id="txtSBProj" class="txtSB TEXT">PROJETOS</div>
+            </div>
+        </a>
+
+        <a href="#linkcontato">
+            <div class="btnSidebar" id="bar4">
+                <div id="linkIcon">
+                    <img id="linkImg" class="imgSB" src="images/portfolio_icons.png" alt="">
+                </div>
+                <div id="txtSBLink" class="txtSB TEXT">LINKS E CONTATO</div>
+            </div>
+        </a>
+
+        <div id="optionsIcon">
+            <img id="optionsImg" class="imgSB" src="images/options_icon.png" alt="">
+        </div>
+        <div id="btnDarkmode" class="btnSidebarOP" onclick="darkmode()">
+            <div id="darkIcon">
+                <img id="darkImg" class="imgSB" src="images/buttons.png" alt="">
+            </div>
+        </div>
+        <div id="btnLanguage" class="btnSidebarOP" onclick="language()">
+            <div id="langIcon">
+                <img id="langImg" class="imgSB" src="images/buttons.png" alt="">
+            </div>
+        </div>
+        <div onclick="showTools()" class="btnSidebarOP" id="paintTool">
+            <div id="brushIcon">
+                <img id="brushfillImg" class="imgSB" src="images/paint.png" alt="">
+                <img id="brushpaintImg" class="imgSB" src="images/paint.png" alt="">
+                <img id="brushlineImg" class="imgSB" src="images/paint.png" alt="">
+            </div>
+        </div>
+
+        <div id="tools">
+            <div onclick="eraser()" class="btntools" id="eraser">
+                <img id="eraserImg" class="imgT" src="images/tools_icons.png" alt="">
+            </div>
+            <div onclick="pickerColor()" class="btntools" id="picker">
+                <img id="pickerImg" class="imgT" src="images/tools_icons.png" alt="">
+            </div>
+            <div onclick="clearCanvas()" class="btntools" id="clear">
+                <img id="clearImg" class="imgT" src="images/tools_icons.png" alt="">
+            </div>
+            <a onclick="saveCanvas()" id="btnSave" href="#" download>
+                <div class="btntools" id="saveCanvas">
+                    <img id="saveImg" class="imgT" src="images/tools_icons.png" alt="">
+                </div>
+            </a>
+
+            <div id="colors">
+                <input type="color" id="colorPicker">
+            </div>
+
+            <div id="brushSize">
+                <input type="range" id="rangeBrush">
+            </div>
+
+            <div onclick="backDraw()" class="btntools" id="backD">
+                <img id="backImg" class="imgT" src="images/tools_icons.png" alt="">
+            </div>
+            <div onclick="forwardDraw()" class="btntools" id="forwD">
+                <img id="forwImg" class="imgT" src="images/tools_icons.png" alt="">
+            </div>
+
+        </div>
+
+    </div>
+
+    <header id="headerInicio">
+        <div id="headerBox">
+            <h1 id="txtHeader" class="TEXT">BEM-VINDO<br>AO</h1>
+            <img id="loraxtxt" src="images/lorax_text.png" alt="">
+        </div>
+
+        <div id="introBox">
+            <img id="loraxIntro" src="images/lorax_intro.png" alt="">
+        </div>
+    </header>
+
+    <section id="inicio" class="sections">
+        <p class="TEXT" id="iniciotxt">
+            Oi você que entrou nesse site, meu nome é Lorenzo, mas sou mais conhecido como Lorax.
+            Eu imagino que você queira saber um pouco sobre mim, então vamos pro básico: eu sou principalmente
+            um artista, mais focado em arte digital, acho que o estilo do site pode ter deixado um pouco óbvio né?
+            Além disso, eu também faço animações, programação e estou no processo de compor músicas.
+            Se você quer saber um pouco mais sobre essas minhas habilidades, meus atuais projetos ou me encontrar em outras redes socias,
+            tudo isso está logo aqui embaixo, só rolar a tela um pouquinho!
+            Mas caso você esteja um pouco mais interessado em mim além dessa descrição básica, só clicar neste botão aqui embaixo:
+        </p>
+
+        <div id="btnMais"><img id="btnArrow" src="images/arrowButton.png" alt=""></div>
+    </section>
+
+    <section id="habilidades" class="sections">
+        <h1 class="secTitle TEXT" id="habTitle">HABILIDADES</h1>
+        <div id="descHabBOX">
+            <p class="descHab TEXT" id="descHab1">Clique no</p>
+            <div class="infoIconDESC">i</div>
+            <p class="descHab TEXT" id="descHab2">para saber mais</p>
+        </div>
+
+        <div id="habBoxes">
+
+            <div id="box1" class="fullBox">
+                <div class="boxes">
+                    <div id="artDiv" class="animsDivs">
+                        <img src="images/lorax_art.png" id="artImg" alt="">
+                    </div>
+                </div>
+
+                <div class="titleFullBox">
+                    <h1 class="titleBox TEXT" id="titleBox1">ARTE</h1>
+                    <div class="infoIcon" onclick="info1()">i</div>
+                </div>
+
+                <div class="ballPercentage">
+                    <div class="percB" id="percB1">
+                        <h1 class="percNum">99%</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div id="box2" class="fullBox">
+                <div class="boxes">
+                    <div id="animDiv" class="animsDivs">
+                        <img src="images/lorax_anim.png" id="animImg" alt="">
+                    </div>
+
+                </div>
+
+                <div class="titleFullBox">
+                    <h1 class="titleBox TEXT" id="titleBox2">ANIMAÇÃO</h1>
+                    <div class="infoIcon" onclick="info2()">i</div>
+                </div>
+
+                <div class="ballPercentage">
+                    <div class="percB" id="percB2">
+                        <h1 class="percNum">75%</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div id="box3" class="fullBox">
+                <div class="boxes">
+                    <div id="progDiv" class="animsDivs">
+                        <img src="images/lorax_code.png" id="progImg" alt="">
+                    </div>
+
+                </div>
+
+                <div class="titleFullBox">
+                    <h1 class="titleBox TEXT" id="titleBox3">PROGRAMAÇÃO</h1>
+                    <div class="infoIcon" onclick="info3()">i</div>
+                </div>
+
+                <div class="ballPercentage">
+                    <div class="percB" id="percB3">
+                        <h1 class="percNum">50%</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div id="box4" class="fullBox">
+                <div class="boxes">
+                    <div id="musicDiv" class="animsDivs">
+                        <img src="images/lorax_music.png" id="musicImg" alt="">
+                    </div>
+                </div>
+
+                <div class="titleFullBox">
+                    <h1 class="titleBox TEXT" id="titleBox4">MÚSICA</h1>
+                    <div class="infoIcon" onclick="info4()">i</div>
+                </div>
+
+                <div class="ballPercentage">
+                    <div class="percB" id="percB4">
+                        <h1 class="percNum">25%</h1>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="projetos" class="sections">
+        <h1 class="secTitle TEXT" id="projTitle">PROJETOS</h1>
+
+        <div class="projBox">
+
+            <div id="projFull">
+                <div class="logoBox">
+
+                    <img onclick="projBack()" id="arrowProjLEFT" class="arrowProj" src="images/arrow2.png" alt="">
+                    <img id="logoProj" src="images/smol_logo.png" alt="">
+                    <img onclick="projForw()" id="arrowProjRIGHT" class="arrowProj" src="images/arrow2.png" alt="">
+
+                </div>
+
+                <div id="boxprojFull">
+
+                    <div id="boxesProj">
+                        <div id="boxProj">
+                            <p class="TEXT" id="textProj">
+                                SMOL é uma série de animação baseada na série Battle For Dream Island.
+                                Neste chamado "object show", 5 personagens são teleportados a um pequeno quarto 
+                                por Atom e Microscope, os apresentadores do show, com a proposta de que 
+                                eles participem de desafios para ganhar um grande prêmio! A cada episódio 
+                                ocorre um desafio e um participante é eliminado, até que sobre apenas um!
+                            </p>
+                        </div>
+                        <video muted autoplay loop id="videoProj" src="images/smol_video.mp4" type="video/mp4"></video>
+                    </div>
+
+                    <a id="anchorProj" target="_blank" href="https://youtube.com/playlist?list=PLRUBjDrI1Ac5jN_I8ESneT5Mu0mUO5Bhd&si=RO4_973m7tf3S3wf">
+                        <div class="TEXT" id="btnProj"><h1 id="textbtnProj">ASSISTA</h1></div>
+                    </a>
+
+                    <p class="TEXT" id="extraTextPROJ">
+                        SMOL atualmente tem 4 episódios (e 1 extra) que podem ser assistidos no Youtube através do
+                        botão acima, o quinto e último episódio está previsto para ser lançado em 2026
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+    <section id="linkcontato" class="sections">
+        <h1 class="secTitle TEXT" id="linkTitle">LINKS E CONTATO</h1>
+
+        <div id="socialFullBox">
+
+            <div class="socialBox">
+                <div class="imgSocial">
+                    <img onclick="xiconClick()" ondblclick="xiconChange()" id="twitIcon" src="images/x_icon.png" alt="">
+                </div>
+                <a target="_blank" class="titleSocial" href="https://x.com/InLorax">
+                    <h1 class="TEXT">@InLorax</h1>
+                </a>
+                <p class="descSocial TEXT" id="descTwit">
+                    Aqui você vai poder encontrar minhas artes mais recentes, alguns rascunhos e de vez
+                    em quando notícias sobre meus projetos, além de ser onde eu principalmente aceito pedidos de comissão
+                </p>
+            </div>
+
+            <hr>
+
+            <div class="socialBox">
+                <div class="imgSocial">
+                    <img id="youtubeIcon" src="images/youtube_icon.png" alt="">
+                </div>
+                <a target="_blank" class="titleSocial" href="https://www.youtube.com/@LoraxinmyLife">
+                    <h1 class="TEXT">@LoraxinmyLife</h1>
+                </a>
+                <p class="descSocial TEXT" id="descYoutube">
+                    Você pode ver uma descrição mais completa na parte de projetos, mas é basicamente onde eu publico minhas animações
+                </p>
+            </div>
+
+            <hr>
+
+            <div class="socialBox">
+                <div class="imgSocial">
+                    <img id="githubIcon" src="images/github_icon.png" alt="">
+                </div>
+                <a target="_blank" class="titleSocial" href="https://github.com/Lorax-in-my-Life">
+                    <h1 class="TEXT">Lorax-in-my-Life</h1>
+                </a>
+                <p class="descSocial TEXT" id="descGithub">
+                    Por enquanto você não vai encontrar nada além deste próprio site aqui, mas será onde você poderá encontrar meus projetos futuros
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p id="footertxt">Este site ainda está em desenvolvimento!<br>
+            Ainda não há suporte para todos os tamanhos de tela e alguns botões ainda não possuem funcionalidade<br>
+            Novas funcionalidades, arte e conteúdo serão adicionados futuramente
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
